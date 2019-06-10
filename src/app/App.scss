@@ -46,14 +46,12 @@ table {
 	border-spacing: 0;
 }
 
-
-
-a{
+a {
 	text-decoration: none;
 	color: black
 }
 
-.logoPic{
+.logoPic {
 	width: 63px;
 	border-radius: 50%;
 	height: 50px;
@@ -64,8 +62,14 @@ a{
 	font-weight: 800;
 }
 
+.leaflet-container {
+	height: 500px;
+	margin: 30px;
+}
+
 @media only screen and (min-width: 600px){
-	.logoPic{
+
+	.logoPic {
 		width: 50px;
 	}
 }

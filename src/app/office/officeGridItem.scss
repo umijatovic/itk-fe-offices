@@ -1,4 +1,4 @@
-.officeGridItem{
+.officeGridItem {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,17 +13,17 @@
     -moz-box-shadow: -1px 5px 14px -2px rgba(197,237,241,1);
     box-shadow: -1px 5px 14px -2px rgba(197,237,241,1);
 
-    &:hover{
-        transform: scale(1.05)
+    &:hover {
+        transform: scale (1.05);
     }
 
-    img{
+    img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
     }
 
-    .logoPic{
+    .logoPic {
         width: 80px;
         height: 80px;
         padding-top: 23px;
@@ -31,9 +31,25 @@
         margin-right: 0;
     }
     
-    h4{
+    .nameP {
         font-size: 1.2em;
         font-weight: 600;
         margin: 25px 0;
     }
+    
+    .descriptionP{ 
+        display: block;
+        display: -webkit-box;
+        max-width: 90%;
+        height: 40px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 1;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    
 }

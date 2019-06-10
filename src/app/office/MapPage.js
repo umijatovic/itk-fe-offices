@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import MarkerComponent from './Marker';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const MapPage = (props) => {
-  
+    
     return (
 
         <LeafletMap
@@ -24,13 +25,7 @@ const MapPage = (props) => {
         
         {props.officesData.map((office, i)=>{
 
-            return <Marker key={i} position={[office.latitude, office.longitude]}>
-                        <Popup>
-                            {(office.photo) ? <img src={office.photo} alt=""/> : <p className='logoPic'>{office.name.charAt(0).toUpperCase()} </p>}
-                            <h4>{office.name} </h4>
-                            <p>{office.description}</p>
-                        </Popup>
-                    </Marker>
+            return <MarkerComponent office={office} key={i}/>
                     
         })}
         

@@ -1,15 +1,15 @@
-header{
+header {
     background-color: #00BCD4;
     text-align: center;    
     color: white;
     padding-top: 10px;
 
-    h1{
+    h1 {
         font-size: 2em;
         margin-bottom: 30px;
     }
 
-    button{
+    button {
         width: 33%;
         background-color: #00BCD4;
         border: none;
@@ -20,7 +20,7 @@ header{
         cursor: pointer;
     }
 
-    .selected{
+    .selected { 
         border-bottom:  solid #FEFF33;
         color: white;
         transition:  border-bottom 0.3s, color 0.3s;
@@ -29,17 +29,17 @@ header{
 
 @media only screen and (min-width: 600px){
 
-    header{
+    header {
 
-        h1{
+        h1 {
             font-size: 3em
         }
 
-        nav{
+        nav {
             display: flex;
             flex-direction: column;
 
-            button{
+            button {
                 width: 100%;
                 font-size: 1.6em;
                 padding-top: 5px;
@@ -52,26 +52,26 @@ header{
 
 @media only screen and (min-width: 1200px){
 
-    header{
+    header {
         display: flex;
         padding-left: 10px;
 
-        h1{
+        h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
 
-        nav{
+        nav {
             flex-direction: row;
             margin-left: 24%;
             width: 50%;
 
-            a{
+            a {
                 width: 33%;
             }
             
-            button{
-                &:first-of-type{
+            button {
+                &:first-of-type {
                     margin-bottom: 0;
                     height: 100%;
                 }
