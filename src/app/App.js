@@ -8,74 +8,39 @@ import MapPage from './office/MapPage';
 import { Switch, Route} from 'react-router-dom';
 
 class App extends React.Component{
-
-  constructor(props){
-
-    super(props);
-    this.state = {
-        offices: [],
-        isListView: JSON.stringify(localStorage.getItem('isListView')),
-        loading: true
-    }
+  state = {
+      offices: [],
+      loading: true,
   }
 
-  loadOffices(){
-
-     DataService().then(data => {
+  loadOffices() {
+     DataService().then(data => 
         this.setState({
           offices: data,
           loading: false,
         })
-     });
+     );
   }
 
-  listViewHandler = (isList) => {
-    isList 
-    ? this.setState(() => 
-        ({ isListView: true }),
-        () => localStorage.setItem('isListView', true)
-      )
-    : 
-    
-
-  }
-
-  gridViewHandler = () => {
-    
-    this.setState({
-      isListView: false,
-    })
-    localStorage.setItem('isListView', false)
-
-  }
-
-  
-
-  componentDidMount(){
-    
+  componentDidMount() {
     this.loadOffices();
-    this.setState({
-      isListView: JSON.parse(localStorage.getItem('isListView'))
-    })
-    
   }
 
-  render(){
-
+  render() {
       return (
-
         <div className="App">
-
-          <Header isListView={this.state.isListView} handleClick={this.listViewHandler} handleClick1={this.gridViewHandler} />
-          <Switch> 
-              {(this.state.loading) ? 
-                  <Animation/> : <Route exact path='/' render={(props) => 
-                  <OfficesPage {...props} isListView={this.state.isListView} officesData={this.state.offices} />}/>
-              }
-              <Route  exact path='/map' render={(props) => <MapPage {...props} officesData={this.state.offices} /> }/>
-          </Switch>
+          <Header />
+          {(this.state.loading) ? <Animation/> : (
+              <Switch> 
+                  <Route exact path='/list' render={(props) => 
+                      <OfficesPage {...props} isListView={true} officesData={this.state.offices}/>}/>
+                  <Route exact path='/grid' render={(props) => 
+                      <OfficesPage {...props} isListView={false} officesData={this.state.offices}/>}/>
+                  <Route  exact path='/map' render={(props) => 
+                      <MapPage {...props} officesData={this.state.offices}/>}/>
+              </Switch>
+          )}
         </div>
-
       );
   }
 }

@@ -1,22 +1,14 @@
 import Office from '../entities/Office';
 import axios from 'axios';
-const URL = 'https://itk-exam-api.herokuapp.com/api/offices';
+import { URL } from '../shared/constants';
 
-const DataService = () => { 
-
-    
-
-        return axios.get(URL)
-                    .then(response => {
-                        const officesData = response.data;
-                        return officesData.map(office => {
-                            return new Office(office.id, office.name, office.description, office.latitude, office.longitude, office.photo);
-                        })
-                    }).catch(error => {
-                        console.log(error);
-                    });
-                    
-    
-}
+const DataService = () => 
+    axios.get(URL)
+        .then(response => {
+            const officesData = response.data;
+            return officesData.map(office => 
+                 new Office(office.id, office.name, office.description, office.latitude, office.longitude, office.photo)
+            )
+        }).catch(error => console.log(error));
 
 export default  DataService;

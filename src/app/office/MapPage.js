@@ -1,37 +1,12 @@
 import React from 'react';
 import MarkerComponent from './Marker';
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer} from 'react-leaflet';
+import { mapProps, mapUrl } from '../shared/constants';
 
-const MapPage = (props) => {
-    
-    return (
-
-        <LeafletMap
-          center={[50, 10]}
-          zoom={1.5}
-          maxZoom={10}
-          attributionControl={true}
-          zoomControl={true}
-          doubleClickZoom={true}
-          scrollWheelZoom={true}
-          dragging={true}
-          animate={true}
-          easeLinearity={0.35}
-        >
-
-        <TileLayer
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        
-        {props.officesData.map((office, i)=>{
-
-            return <MarkerComponent office={office} key={i}/>
-                    
-        })}
-        
-      </LeafletMap>
-    );
-  }
-
+const MapPage = ({officesData}) => 
+    <LeafletMap { ...mapProps }>
+        <TileLayer url={mapUrl}/>
+        {officesData.map((office, i)=> <MarkerComponent office={office} key={i}/> )}
+    </LeafletMap>
 
 export default MapPage;

@@ -1,33 +1,16 @@
 import React from 'react';
 import './Header.scss';
-import { Link } from 'react-router-dom';
-import { link } from 'fs';
+import { NavLink } from 'react-router-dom';
+import { linksArray } from '../shared/constants';
 
-const Header = (props) => {
-
-    const { handleClick, handleClick1, handleClick2 } = props;
-        const buttonClass = (props.isListView) ? 'selected' : '';
-        const buttonClass1 = (props.isListView) ? '' : 'selected';
-        const buttonClass2 = (props.isListView === 'map') ? 'selected' : '';
-
-        return(
-
-            
-            <header>
-
-                <h1>Offices</h1>
-
-                <nav>
-arrayOfLinks.map(link => <Link to={link.path})
-                    <Link to='/'><button className={buttonClass} onClick={handleClick}>List</button></Link>
-                    <Link to='/'><button className={buttonClass1} onClick={handleClick1}>Grid</button></Link>
-                    <Link to='/map'><button>Map</button></Link>
-
-                </nav>
-                
-            </header>
-        )
-    
-}
+const Header = () => 
+    <header>
+        <h1>Offices</h1>
+        <nav>
+            {linksArray.map((link, i)=> 
+                 <NavLink key={i} to={`/${link}`}  activeClassName='selected'><button>{link.charAt(0).toUpperCase() + link.slice(1)}</button> </NavLink>
+            )}
+        </nav>
+    </header>
 
 export default Header;

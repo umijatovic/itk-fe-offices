@@ -2,23 +2,15 @@ import React from 'react';
 import './officesPage.scss'
 import OfficeItem from './officeItem';
 
-const OfficesPage = (props) =>{
-    
-    const officesDivClass = props.isListView ? 'officesDiv' : 'officesDivGrid';
-    const officeItemClass = props.isListView ? 'officeListItem' : 'officeGridItem';
+const OfficesPage = ({officesData, isListView}) =>{
+    const officesDivClass = isListView ? 'officesDiv' : 'officesDivGrid';
+    const officeItemClass = isListView ? 'officeListItem' : 'officeGridItem';
     
         return(
-
             <div className={officesDivClass}>
-
-                
-                        {props.officesData.map((office, i) =>
-                            {return <OfficeItem className={officeItemClass} key={i} officeData={office}/>})} 
-                        
+                    {officesData.map((office, i) => <OfficeItem className={officeItemClass} key={i} officeData={office}/>)} 
             </div>
-
         )
-    
 }
 
 export default OfficesPage;

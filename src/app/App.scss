@@ -63,13 +63,14 @@ a {
 }
 
 .leaflet-container {
-	height: 500px;
+	height: 75vh;
 	margin: 30px;
 }
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 600px) {
 
 	.logoPic {
 		width: 50px;
 	}
+	
 }
