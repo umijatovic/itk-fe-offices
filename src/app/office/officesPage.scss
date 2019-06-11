@@ -1,0 +1,66 @@
+.officesDiv {
+    padding: 15px;
+}
+.officesDivGrid {
+	margin: 15px;
+	padding: 1px;
+    background-color: #00BCD4;
+}
+.mapDiv {
+    width: 100%;
+    margin-top: 3%;
+    .leaflet-container {
+        height: 50vh;
+        width: 95%;
+        margin: 0 auto;
+        .leaflet-popup-content {
+            text-align: center;
+            img {
+                width: 100%;
+            }
+            .logoPic {
+                margin: 10px auto;
+                width: 80px;
+                height: 80px;
+                padding-top: 23px;
+                font-size: 2em;
+            }
+        }
+        .leaflet-popup-content-wrapper {
+            h4 {
+                font-size: 2em;
+                font-weight: bold;
+            }
+            p {
+                font-size: 1.4em;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .officesDivGrid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .officeGridItem {
+            width: 45%;
+        }
+    }
+    .mapDiv {
+        .leaflet-container {
+            height: 55vh;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .officesDivGrid {
+        display: flex;
+        justify-content: space-around;
+        .officeGridItem {
+            width: 22%;
+        }
+    }
+}
